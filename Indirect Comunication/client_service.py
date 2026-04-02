@@ -1,5 +1,6 @@
 import pika
 import json
+import time
 
 # Conexión a RabbitMQ
 rabbit_broker_ip = 'localhost'
@@ -44,9 +45,14 @@ def process_line(line):
     )
 
 # Leer benchmark
+start = time.time()
 with open('FILENAME') as f:
     for line in f:
         process_line(line)
+
+# Medir tiempo total
+end = time.time()
+print(f"Tiempo total de envío: {end - start:.2f}s")
         
 # Cerramos la conexión
 connection.close()
