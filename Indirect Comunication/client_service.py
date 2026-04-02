@@ -50,7 +50,7 @@ with open('FILENAME') as f:
     for line in f:
         process_line(line)
 
-# Medir tiempo total
+# Medir tiempo total de envio
 end = time.time()
 print(f"Tiempo total de envío: {end - start:.2f}s")
         
