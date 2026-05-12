@@ -3,8 +3,12 @@ import json
 import redis
 
 r = redis.Redis(host='10.0.1.133', port=6379, db=0)
-
-connection = pika.BlockingConnection(pika.ConnectionParameters('10.0.1.142'))
+credentials = pika.PlainCredentials('admin', 'password')
+parameters = pika.ConnectionParameters(
+    host='10.0.1.142', 
+    credentials=credentials
+)
+connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 channel.queue_declare(queue='tickets_queue', durable=True)
 
