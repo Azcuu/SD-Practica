@@ -4,7 +4,12 @@ import time
 
 # Conexión a RabbitMQ
 rabbit_broker_ip = '10.0.1.142'
-connection = pika.BlockingConnection(pika.ConnectionParameters(rabbit_broker_ip))
+credentials = pika.PlainCredentials('admin', 'admin123')
+parameters = pika.ConnectionParameters(
+    host=rabbit_broker_ip,
+    credentials=credentials
+)
+connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
 # Cola principal de tickets
