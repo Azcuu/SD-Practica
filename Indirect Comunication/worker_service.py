@@ -2,9 +2,9 @@ import pika
 import json
 import redis
 
-r = redis.Redis(host='IP_REDIS', port=6379, db=0)
+r = redis.Redis(host='10.0.1.133', port=6379, db=0)
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('IP_RABBIT_BROKER'))
+connection = pika.BlockingConnection(pika.ConnectionParameters('10.0.1.142'))
 channel = connection.channel()
 channel.queue_declare(queue='tickets_queue', durable=True)
 
