@@ -3,7 +3,7 @@ import json
 import redis
 
 r = redis.Redis(host='10.0.1.133', port=6379, db=0)
-credentials = pika.PlainCredentials('admin', 'password')
+credentials = pika.PlainCredentials('admin', 'admin123')
 parameters = pika.ConnectionParameters(
     host='10.0.1.142', 
     credentials=credentials
