@@ -3,7 +3,7 @@ import json
 import time
 
 # Conexión a RabbitMQ
-rabbit_broker_ip = 'localhost'
+rabbit_broker_ip = '10.0.1.142'
 connection = pika.BlockingConnection(pika.ConnectionParameters(rabbit_broker_ip))
 channel = connection.channel()
 
