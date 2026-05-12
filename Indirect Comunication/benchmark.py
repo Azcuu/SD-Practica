@@ -1,7 +1,7 @@
 import redis
 import time
 
-r = redis.Redis(host='IP_REDIS', port=6379, db=0, decode_responses=True)
+r = redis.Redis(host='10.0.1.133', port=6379, db=0, decode_responses=True)
 
 def reset_all():
     r.flushall()
