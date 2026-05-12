@@ -18,7 +18,8 @@ channel.queue_declare(queue='tickets_queue', durable=True)
 # Función para procesar cada línea del benchmark
 def process_line(line):
     parts = line.strip().split()
-
+    if not line or line.startswith('#'):
+        return
     if parts[0] != "BUY":
         return
 
