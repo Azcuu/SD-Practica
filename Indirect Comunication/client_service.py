@@ -18,9 +18,8 @@ channel.queue_declare(queue='tickets_queue', durable=True)
 # Función para procesar cada línea del benchmark
 def process_line(line):
     parts = line.strip().split()
-    if not line or line.startswith('#'):
-        return
-    if parts[0] != "BUY":
+
+    if not parts or parts[0] != "BUY":
         return
 
     # --- UNNUMBERED ---
@@ -52,13 +51,13 @@ def process_line(line):
 
 # Leer benchmark
 start = time.time()
-with open('FILENAME') as f:
+with open('benchmark_numbered.txt') as f:
     for line in f:
         process_line(line)
 
 # Medir tiempo total de envio
 end = time.time()
 print(f"Tiempo total de envío: {end - start:.2f}s")
-        
+
 # Cerramos la conexión
 connection.close()
