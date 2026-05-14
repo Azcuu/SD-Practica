@@ -4,7 +4,7 @@ import time
 import sys
 
 # Configuración
-NGINX_URL = "http://IP_DE_TU_VM_NGINX"  # <--- Cambia esto
+NGINX_URL = "http://10.0.1.182"  # <--- Cambia esto
 NUM_THREADS = 50  # Ajusta según la potencia de la VM
 
 # Métricas globales
