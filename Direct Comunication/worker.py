@@ -6,10 +6,10 @@ app = FastAPI()
 
 # Configuración de Redis
 # RECOMENDACIÓN: Usa la IP privada de tu instancia de Redis en AWS
-REDIS_HOST = os.getenv("REDIS_HOST", "IP_PRIVADA_DE_REDIS")
+REDIS_HOST = os.getenv("REDIS_HOST", "10.0.1.143")
 r = redis.Redis(host=REDIS_HOST, port=6379, decode_responses=True)
 
-TOTAL_TICKETS = 20000
+TOTAL_TICKETS = 30000
 
 @app.get("/health")
 def health_check():
